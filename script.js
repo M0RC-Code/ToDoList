@@ -5,3 +5,8 @@ const listEl = document.querySelector(".list");
 const listItemEl = document.querySelector(".list-item");
 
 // add new task to list
+inputBtnEl.addEventListener("click", () => {
+    listEl.insertAdjacentHTML("beforeend", `
+        <li class="list-item">${inputEl.value}</li>`);
+    inputEl.value = "";
+})
