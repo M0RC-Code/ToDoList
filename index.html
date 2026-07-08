@@ -8,11 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" class="input-text">
-        <button class="input-task-btn">click</button>
-        <ul class="list">
-            <!-- when add task show here -->
-        </ul>
+        <div class="container-task">
+            <input type="text" class="input-text">
+            <button class="input-task-btn">click</button>
+        </div>
+        <div class="container-list-task">
+            <ul class="list">
+                <!-- when add task show here -->
+                <div class="task">
+                    <li class="list-item">${task}</li>
+                <div class="task-btn-delete-complete">
+                    <button class="delete-task-btn">delete</button>
+                    <button class="complete-task-btn">complete</button>
+                </div>
+                </div>
+            </ul>
+        </div>
         <!-- delete and compelete all task -->
         <div class="control-task">
             <button class="delete-all-task-btn">Delete</button>

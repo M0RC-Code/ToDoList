@@ -15,11 +15,12 @@ function addNewTask() {
 
     task.push(newTask)
     listEl.insertAdjacentHTML("beforeend", `
-        <div class="task">
+            <div class="task">
             <li class="list-item">${task}</li>
-            <button class="delete-task-btn">delete</button>
-            <button class="complete-task-btn">complete</button>
-        </div>`);
+            <div class="task-btn-delete-complete">
+                <button class="delete-task-btn">delete</button>
+                <button class="complete-task-btn">complete</button>
+            </div>`);
 
     inputEl.value = "";
     listEl.classList.remove("complete");
@@ -28,16 +29,24 @@ function addNewTask() {
 // add new task to list
 inputBtnEl.addEventListener("click", addNewTask)
 // add event delete and complete
+
 listEl.addEventListener("click", (event) => {
-    // delete
+    // پیدا کردن نزدیک‌ترین المان با کلاس task
+    const taskElement = event.target.closest('.task');
+
+    // اگر دکمه حذف بود
     if (event.target.classList.contains("delete-task-btn")) {
-        event.target.parentElement.remove();
+        if (taskElement) {
+            taskElement.remove();
+        }
     }
 
-    // complete
+    // اگر دکمه تکمیل بود
     if (event.target.classList.contains("complete-task-btn")) {
-        // complete style
-        event.target.parentElement.querySelector(".list-item").style.textDecoration = "line-through";
+        if (taskElement) {
+            // برای مثال اضافه کردن یک کلاس برای استایل دهی به تسک کامل شده
+            taskElement.classList.toggle("complete");
+        }
     }
 });
 
