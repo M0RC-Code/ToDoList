@@ -15,7 +15,7 @@ function addNewTask() {
     newTask.trim();
     task.push(newTask)
 
-    listEl.insertAdjacentHTML("beforebegin", `
+    listEl.insertAdjacentHTML("beforeend", `
             <div class="task">
                 <li class="list-item">${task}</li>
                 <div class="task-btn-delete-complete">
@@ -47,7 +47,7 @@ listEl.addEventListener("click", (event) => {
     if (event.target.classList.contains("complete-task-btn")) {
         if (taskElement) {
             // add style complete task
-            taskElement.classList.toggle("complete");
+            taskElement.classList.toggle("complete")
         }
     }
 });
