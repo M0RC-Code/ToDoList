@@ -14,7 +14,6 @@ function addNewTask() {
     let newTask = inputEl.value;
     newTask.trim();
     task.push(newTask)
-
     listEl.insertAdjacentHTML("beforeend", `
             <div class="task">
                 <li class="list-item">${task}</li>
@@ -47,7 +46,7 @@ listEl.addEventListener("click", (event) => {
     if (event.target.classList.contains("complete-task-btn")) {
         if (taskElement) {
             // add style complete task
-            taskElement.classList.toggle("complete")
+            taskElement.classList.toggle("complete");
         }
     }
 });
