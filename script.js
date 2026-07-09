@@ -12,14 +12,16 @@ const completeTaskEl = document.querySelector(".complete-task-btn");
 function addNewTask() {
     let task = []
     let newTask = inputEl.value;
-
+    newTask.trim();
     task.push(newTask)
-    listEl.insertAdjacentHTML("beforeend", `
+
+    listEl.insertAdjacentHTML("beforebegin", `
             <div class="task">
-            <li class="list-item">${task}</li>
-            <div class="task-btn-delete-complete">
-                <button class="delete-task-btn">delete</button>
-                <button class="complete-task-btn">complete</button>
+                <li class="list-item">${task}</li>
+                <div class="task-btn-delete-complete">
+                    <button class="delete-task-btn btn-list btn">delete</button>
+                    <button class="complete-task-btn btn-list btn">complete</button>
+                </div>
             </div>`);
 
     inputEl.value = "";
@@ -31,20 +33,20 @@ inputBtnEl.addEventListener("click", addNewTask)
 // add event delete and complete
 
 listEl.addEventListener("click", (event) => {
-    // پیدا کردن نزدیک‌ترین المان با کلاس task
+    // find task element
     const taskElement = event.target.closest('.task');
 
-    // اگر دکمه حذف بود
+    // delete
     if (event.target.classList.contains("delete-task-btn")) {
         if (taskElement) {
             taskElement.remove();
         }
     }
 
-    // اگر دکمه تکمیل بود
+    // complete
     if (event.target.classList.contains("complete-task-btn")) {
         if (taskElement) {
-            // برای مثال اضافه کردن یک کلاس برای استایل دهی به تسک کامل شده
+            // add style complete task
             taskElement.classList.toggle("complete");
         }
     }

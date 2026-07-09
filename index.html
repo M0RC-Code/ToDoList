@@ -7,27 +7,28 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <h1 class="brand">ToDo List</h1>
     <div class="container">
         <div class="container-task">
-            <input type="text" class="input-text">
-            <button class="input-task-btn">click</button>
+            <input type="text" class="input-text" placeholder="Enter new task">
+            <button class="input-task-btn">Add</button>
         </div>
         <div class="container-list-task">
             <ul class="list">
                 <!-- when add task show here -->
                 <div class="task">
                     <li class="list-item">${task}</li>
-                <div class="task-btn-delete-complete">
-                    <button class="delete-task-btn">delete</button>
-                    <button class="complete-task-btn">complete</button>
-                </div>
+                    <div class="task-btn-delete-complete">
+                        <button class="delete-task-btn btn-list btn">delete</button>
+                        <button class="complete-task-btn btn-list btn">complete</button>
+                    </div>
                 </div>
             </ul>
         </div>
         <!-- delete and compelete all task -->
         <div class="control-task">
-            <button class="delete-all-task-btn">Delete</button>
-            <button class="complete-all-task-btn">Complete</button>
+            <button class="delete-all-task-btn btn">Delete</button>
+            <button class="complete-all-task-btn btn">Complete</button>
         </div>
     </div>
 </body>
