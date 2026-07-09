@@ -10,10 +10,10 @@ const deleteTaskEl = document.querySelector(".delete-task-btn");
 const completeTaskEl = document.querySelector(".complete-task-btn");
 
 function addNewTask() {
-    let task = []
-    let newTask = inputEl.value;
-    newTask.trim();
-    task.push(newTask)
+    task = [];
+    let newTask = inputEl.value.trim();
+    if (newTask === "") return;
+    task.push(newTask);
     listEl.insertAdjacentHTML("beforeend", `
             <div class="task">
                 <li class="list-item">${task}</li>
@@ -59,5 +59,11 @@ deleteAllTaskBtn.addEventListener("click", () => {
 
 // complete all task
 completeAllTaskBtn.addEventListener("click", () => {
-    listEl.classList.add("complete");
-})
+    // select all element task
+    const allTaskElements = document.querySelectorAll(".task");
+    
+    // use loop for add complete
+    allTaskElements.forEach((task) => {
+        task.classList.add("complete");
+    });
+});

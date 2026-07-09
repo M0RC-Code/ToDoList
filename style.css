@@ -159,3 +159,7 @@ li {
     color: green;
     font-weight: bold;
 }
+.task.complete .list-item {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
