@@ -1,3 +1,4 @@
+/* Set font */
 @font-face {
     font-family: "Inter";
     src: url("assets/fonts/Inter-VariableFont_opsz\,wght.ttf");
@@ -21,6 +22,7 @@ input {
 li {
     all: unset;
 }
+/* Style all buttons */
 .btn {
     cursor: pointer;
     color: #fff;
@@ -154,10 +156,10 @@ li {
     border-radius: 15px;
     background-color: #39FF14;
 }
-.complete {
+.completed {
     text-decoration: dashed;
-    color: green;
-    font-weight: bold;
+    background-color: green;
+    border-radius: 15px;
 }
 .task.complete .list-item {
     text-decoration: line-through;

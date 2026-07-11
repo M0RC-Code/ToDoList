@@ -10,7 +10,7 @@ const deleteTaskEl = document.querySelector(".delete-task-btn");
 const completeTaskEl = document.querySelector(".complete-task-btn");
 
 // create tasks object
-let tasks = [{id: Date.now(),titleTask: "hello", completed: false}];
+let tasks = [{id: Date.now().toString(),titleTask: "hello", completed: false}];
 
 function loadTask(){
     let loadTask = localStorage.getItem("tasks");
@@ -19,9 +19,18 @@ function loadTask(){
     }else {
         tasks = [];
     }
+    render()
+}
+loadTask();
+// save task to local storage
+function saveTask(){
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+function render(){
+    listEl.innerHTML = "";
     tasks.forEach((task) => {
         listEl.insertAdjacentHTML("beforeend", `
-            <div class="task">
+            <div class="task ${task.completed ? "completed" : "notCompleted"}" data-id="${task.id}">
                 <li class="list-item">${task.titleTask}</li>
                 <div class="task-btn-delete-complete">
                     <button class="delete-task-btn btn-list btn">delete</button>
@@ -29,11 +38,6 @@ function loadTask(){
                 </div>
             </div>`);
     })
-}
-loadTask();
-// save task to local storage
-function saveTask(){
-    localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 // add new task func
 function addNewTask() {
@@ -46,20 +50,15 @@ function addNewTask() {
     tasks.push({
         titleTask: titleTask,
         completed: false,
-        id: Date.now()
+        id: Date.now().toString()
     })
     // Create new task to page
-    listEl.insertAdjacentHTML("beforeend", `
-            <div class="task">
-                <li class="list-item">${titleTask}</li>
-                <div class="task-btn-delete-complete">
-                    <button class="delete-task-btn btn-list btn">delete</button>
-                    <button class="complete-task-btn btn-list btn">complete</button>
-                </div>
-            </div>`);
+    render()
 
     inputEl.value = "";
     listEl.classList.remove("complete");
+    console.log(tasks.id)
+    console.log(tasks)
 
     saveTask()
 }
@@ -71,19 +70,25 @@ inputBtnEl.addEventListener("click", addNewTask)
 listEl.addEventListener("click", (event) => {
     // find task element
     const taskElement = event.target.closest('.task');
-
-    // delete
+    console.log(event)
+    // deleted
     if (event.target.classList.contains("delete-task-btn")) {
         if (taskElement) {
-            taskElement.remove();
+            const id = taskElement.dataset.id;
+            tasks = tasks.filter((task => task.id !== id));
+            saveTask()
+            render()
         }
     }
 
-    // complete
+    // completed
     if (event.target.classList.contains("complete-task-btn")) {
         if (taskElement) {
-            // add style complete task
-            taskElement.classList.toggle("complete");
+            const id = taskElement.dataset.id;
+            const task = tasks.find(task => task.id === id);
+            task.completed = !task.completed
+            saveTask()
+            render()
         }
     }
 });
@@ -91,18 +96,20 @@ listEl.addEventListener("click", (event) => {
 
 // delete all task
 deleteAllTaskBtn.addEventListener("click", () => {
-    listEl.innerHTML = "";
+    tasks = [];
+    saveTask();
+    render();
 })
 
 // complete all task
-completeAllTaskBtn.addEventListener("click", () => {
-    // select all element task
-    const allTaskElements = document.querySelectorAll(".task");
-    
+completeAllTaskBtn.addEventListener("click", () => {    
     // use loop for add complete
-    allTaskElements.forEach((task) => {
-        task.classList.add("complete");
-    });
+    tasks.forEach((task) => {
+        task.completed = true;
+    })
+    saveTask();
+    render();
 });
 
-loadTask(tasks)
+saveTask();
+render();
