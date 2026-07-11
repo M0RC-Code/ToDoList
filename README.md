@@ -1,73 +1,57 @@
-# 📝 ToDo List
+ToDoList
 
-A modern and lightweight ToDo List application built with HTML, CSS, and Vanilla JavaScript.
+A modern ToDo List application built with Vanilla JavaScript.
 
-This project was created as part of my journey to becoming a professional Front-End Developer. It is not a one-time project and will continue to evolve over time with new features, performance improvements, and cleaner architecture.
+This project is part of my Front-End development journey and will continue to evolve as I learn new concepts and improve my programming skills.
 
----
+Features
 
-## 🚀 Current Version
+- Add new tasks
+- Delete individual tasks
+- Complete individual tasks
+- Delete all tasks
+- Complete all tasks
+- Persistent storage using Local Storage
+- Automatic task loading after page refresh
 
-v1.0.0 – First Stable Release
-
-This version includes the core functionality of the application and serves as the foundation for future updates.
-
----
-
-## ✨ Current Features
-
-- ✅ Add new tasks
-- ✅ Delete individual tasks
-- ✅ Mark individual tasks as completed
-- ✅ Delete all tasks
-- ✅ Complete all tasks
-- ✅ Responsive and clean user interface
-- ✅ Custom typography
-- ✅ Organized project structure
-
----
-
-## 🛠️ Built With
+Built With
 
 - HTML5
 - CSS3
-- Vanilla JavaScript (ES6)
-- Git
-- GitHub
+- JavaScript (ES6)
+- Local Storage API
 
----
+Project Status
 
-## 📅 Roadmap
+This project is actively maintained and will continue receiving new features, improvements, and bug fixes.
+
+Current Version:
+
+v1.1.0
+
+Roadmap
 
 Upcoming features include:
 
-- 💾 Local Storage support
-- 🔍 Task filtering
-- ✏️ Edit existing tasks
-- 🔎 Search tasks
-- 🌙 Dark Mode
-- 🎨 UI/UX improvements
-- ⚡ Performance optimization
-- 🚀 More features coming soon...
+- Edit existing tasks
+- Task filtering (All / Active / Completed)
+- Search functionality
+- Due dates
+- Categories
+- Drag & Drop task sorting
+- Dark / Light mode
+- Responsive improvements
 
----
+Versioning
 
-## 📌 Project Status
+This project follows Semantic Versioning.
 
-🟢 Active Development
+Author
 
-This project is actively maintained and will receive regular updates as I continue learning and improving my JavaScript skills. Every new version will introduce new features, code improvements, and a better user experience.
+M0RC
 
----
+GitHub:
+https://github.com/M0RC-Code
 
-## 👨‍💻 Author
-
-Mardin
-
-GitHub: M0RC-Code
-
----
-
-## ⭐ Support
-
-If you like this project, consider giving it a ⭐ on GitHub. It motivates me to continue improving and building more open-source projects.
+YouTube:
+Coming Soon...
